@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+  logging:
+    level:
+      root: ERROR
+      org.springframework.web: ERROR
+      com.auth0.example: TRACE
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: XTgmBbtaI7UI9eFG8dJ8AO5Py4rHLJyL
+            client-secret: 7aW89EdHLAL33uAejqOlWEGSOreaR9-xY75Gr7MR5GwN5EJH9CJfr8Ji_VRrk1Yc
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://luminis-labs.us.auth0.com/
